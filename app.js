@@ -25,16 +25,20 @@ $(document).ready(function(){
       var tweet = streams.home[index];
       var $tweet = $('<li></li>');
       // Put the info from the object into the div
-      $tweet.text('@' + tweet.user + ': ' + tweet.message);
+      $tweet.text(`@${tweet.user} : ${tweet.message} || ${tweet.created_at.getHours()}:${tweet.created_at.getMinutes()} - ${tweet.created_at.toDateString()}`);
       // Append that div to the body
       $tweet.appendTo($('.stream'));
       index -= 1;
     }
   }
-  // Initial tweets
-  refreshStream();
 
+  // Display the timestamps of when the tweets were created. This timestamp should reflect the actual time the tweets were created, and should not just be hardcoded.
+  // Function to create timestamps should be put in gata_generator?
+
+  // Handlers
   // Refresh stream every time the button is clicked
   $body.on('click', 'button', refreshStream);
 
+  // Initial tweets
+  refreshStream();
 });
