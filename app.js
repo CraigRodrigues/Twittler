@@ -18,6 +18,11 @@ $(document).ready(function(){
   const refreshStream = function(element) {
     // clear the tweets so we can rebuild it
     $('.stream').empty();
+    // reset the new tweet counter only if element is undefined
+    if (!element) {
+      streams.newTweetCount = 0;
+    }
+    $('#refreshArea').children('p').text(`Refresh Tweets`);
     $('h2').text(`Tweet Stream`);
     var allTweets = streams.home.slice();
     // If no user passed in then show all tweets
@@ -49,7 +54,7 @@ $(document).ready(function(){
 
   // Handlers
   // Refresh stream every time the button is clicked
-  $('#refreshButton').on('click', function() { refreshStream(); });
+  $('#refreshArea').on('click', function() { refreshStream(); });
 
   $('.stream').on('click', 'span', function() {
     // When the username span is clicked refresh the stream to only show their tweets

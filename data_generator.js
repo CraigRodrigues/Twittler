@@ -8,6 +8,7 @@ window.streams = {}; // creating an property on the window object which is an em
 // creating empty data structures to house home and users
 streams.home = [];
 streams.users = {};
+streams.newTweetCount = 0;
 // here are the 4 users we have added to the users object. Each starts off as an empty array.
 streams.users.shawndrost = [];
 streams.users.sharksforcheap = [];
@@ -24,6 +25,8 @@ var addTweet = function(newTweet){
   streams.users[username].push(newTweet);
   // Push the new tweet into the main home property which holds ALL the tweets in order?
   streams.home.push(newTweet);
+  streams.newTweetCount++;
+  $('#refreshArea').children('p').text(`View ${streams.newTweetCount} new tweets`);
 };
 
 // utility function to find random element in an array (to get the random words)
