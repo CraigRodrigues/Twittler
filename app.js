@@ -1,6 +1,6 @@
 $(document).ready(function(){
   var $body = $('body');
-  $body.html('');
+  //$body.html('');
 
   // Need to create random tweets and show it to the user.
   // scheduleNextTweet();
@@ -16,8 +16,4 @@ $(document).ready(function(){
     $tweet.appendTo($body);
     index -= 1;
   }
-
-  var $refreshButton = $('<button>Refresh</button>');
-  $refreshButton.appendTo($body);
-
 });
