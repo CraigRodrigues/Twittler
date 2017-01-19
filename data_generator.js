@@ -77,10 +77,16 @@ for(var i = 0; i < 10; i++){
   generateRandomTweet();
 }
 
+var getRandomIntInclusive = function(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 // This function seems to generate a random tweet between every ??? seconds and ??? seconds
 var scheduleNextTweet = function(){
   generateRandomTweet();
-  setTimeout(scheduleNextTweet, Math.random() * 1500);
+  setTimeout(scheduleNextTweet, getRandomIntInclusive(20, 40) * 1000);
 };
 
 //above function is immeditately called (why not use an IIFE?)
