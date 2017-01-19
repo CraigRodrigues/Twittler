@@ -26,6 +26,7 @@ var addTweet = function(newTweet){
   // Push the new tweet into the main home property which holds ALL the tweets in order?
   streams.home.push(newTweet);
   streams.newTweetCount++;
+  document.title = `(${streams.newTweetCount}) Twittler`;
   $('#refreshArea').children('p').text(`View ${streams.newTweetCount} new tweets`);
 };
 
