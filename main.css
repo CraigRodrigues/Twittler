@@ -53,7 +53,10 @@ body {
   margin: 0 auto;
 }
 header {
-  height: 200px;
+  width: 300px;
+  height: 75px;
+  margin: 0 auto;
+  padding-top: 20px;
 }
 #logo    {
   width: 200px;
@@ -61,12 +64,20 @@ header {
 }
 #title  {
   width: 600px;
+  height: 100px;
+  margin-top: auto;
+  margin-bottom: auto;
   margin-left: 200px;
+  vertical-align: center;
 }
 
 /* Search */
 .search {
   margin: 20px auto 20px auto;
+  text-align: center;
+}
+
+.searchInput {
   width: 200px;
 }
 
@@ -97,7 +108,7 @@ footer {
 }
 .main {
   float: right;
-  margin: 0 1.5%;
+  margin: 0 2%;
   width: 70%;
 }
 
@@ -108,7 +119,8 @@ footer {
 }
 #newTweetInput input {
   width: 100%;
-  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 #refreshArea {
   margin: 5px auto 5px auto;
@@ -134,10 +146,23 @@ footer {
 
 /* Main Tweet Stream */
 .main {
-  border: 2px solid #9799a7;
-  padding: 10px;
+  border: 1px solid #9799a7;
+  padding: 0px;
+}
+
+.tweets {
+  overflow: auto;
+  position: relative;
+  height: 500px;
 }
 
 .tweets li {
-  padding: 5px;
+  padding: 5px 10px;
+  border-top: 1px solid black;
+}
+
+/* Highlight */
+
+.highlight {
+  background-color: #f9f9f9;
 }

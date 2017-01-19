@@ -93,6 +93,10 @@ $(document).ready(function(){
     }
   });
 
+  $('.stream').on('mouseenter mouseleave', 'li', function() {
+    $(this).toggleClass('highlight');
+  });
+
   // Initial tweets
   refreshStream();
 });
