@@ -16,9 +16,10 @@ $(document).ready(function(){
 
   // Show the user new tweets somehow. (You can show them automatically as they're created, or create a button that displays new tweets.)
   const refreshStream = function () {
+    // clear the tweets so we can rebuild it
+    $('.stream').empty();
 
     // shows the tweets from newest to oldest
-
     var index = streams.home.length - 1;
     while(index >= 0) {
       var tweet = streams.home[index];
@@ -26,7 +27,7 @@ $(document).ready(function(){
       // Put the info from the object into the div
       $tweet.text('@' + tweet.user + ': ' + tweet.message);
       // Append that div to the body
-      $tweet.appendTo($('.tweets').children("ul"));
+      $tweet.appendTo($('.stream'));
       index -= 1;
     }
   }
