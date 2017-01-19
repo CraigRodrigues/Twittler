@@ -17,13 +17,18 @@ streams.users.mracus = [];
 streams.users.douglascalhoun = [];
 // adding a property to the window object which is just an Array of the stream users so it should be [shawndrost, sharksforcheap, mracus, douglascalhoun]
 window.users = Object.keys(streams.users);
+window.visitor = [];
 
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet){
   // from the tweet that was created we get the user
   var username = newTweet.user;
   // Find the users tweet stream array and push the new tweet into it
-  streams.users[username].push(newTweet);
+  if (username === 'visitor') {
+    visitor.push(newTweet);
+  } else {
+    streams.users[username].push(newTweet);
+  }
   // Push the new tweet into the main home property which holds ALL the tweets in order?
   streams.home.push(newTweet);
 
@@ -88,12 +93,18 @@ var writeTweet = function(message){
   // There needs to be a visitor property on the global window? Why not just add it as a user?
   // We can make any made with writeTweet be added to this new 'visitor' user instead of on some.
   // To avoid having random tweets made by the visitor use this function to create that user if it doesn't exist yet.
+
+  // If first tweet then create the visitor
   if(!visitor){
-    throw new Error('set the global visitor property!');
+    //throw new Error('set the global visitor property!');
+    visitor = true;
+    streams.users.visitor = [];
+    users.push('visitor');
   }
   // all of the below just adds a tweet to the stream that a 'visitor' just made.
   var tweet = {};
-  tweet.user = visitor;
+  tweet.user = 'visitor';
   tweet.message = message;
+  tweet.created_at = new Date();
   addTweet(tweet);
 };
