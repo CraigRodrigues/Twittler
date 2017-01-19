@@ -23,21 +23,19 @@ $(document).ready(function(){
     var index = streams.home.length - 1;
     while(index >= 0) {
       var tweet = streams.home[index];
-      var $tweet = $('<li></li>');
-      // Put the info from the object into the div
-      $tweet.text(`@${tweet.user} : ${tweet.message} || ${tweet.created_at.getHours()}:${tweet.created_at.getMinutes()} - ${tweet.created_at.toDateString()}`);
-      // Append that div to the body
-      $tweet.appendTo($('.stream'));
+      $('.stream').append(`<li><span class="${tweet.user}">@${tweet.user}</span> : <span class="message">${tweet.message}</span> || <span class="timestamp">${tweet.created_at.getHours()}:${tweet.created_at.getMinutes()}:${tweet.created_at.getSeconds()} - ${tweet.created_at.toDateString()}</span></li>`);
       index -= 1;
     }
   }
 
-  // Display the timestamps of when the tweets were created. This timestamp should reflect the actual time the tweets were created, and should not just be hardcoded.
-  // Function to create timestamps should be put in gata_generator?
-
   // Handlers
   // Refresh stream every time the button is clicked
   $body.on('click', 'button', refreshStream);
+
+  // Allow the user to click on a username to see that user's timeline.
+  // Add a class of <username> to each tweet with the users name so that when it is clicked we can filter out only their tweets?
+  // I need to breakup the tweet into spans of "username" "tweet" "timestamp"
+
 
   // Initial tweets
   refreshStream();
