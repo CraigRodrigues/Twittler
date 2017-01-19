@@ -4,64 +4,82 @@
  */
 
 // set up data structures
-window.streams = {};
+window.streams = {}; // creating an property on the window object which is an empty obj
+// creating empty data structures to house home and users
 streams.home = [];
 streams.users = {};
+// here are the 4 users we have added to the users object. Each starts off as an empty array.
 streams.users.shawndrost = [];
 streams.users.sharksforcheap = [];
 streams.users.mracus = [];
 streams.users.douglascalhoun = [];
+// adding a property to the window object which is just an Array of the stream users so it should be [shawndrost, sharksforcheap, mracus, douglascalhoun]
 window.users = Object.keys(streams.users);
 
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet){
+  // from the tweet that was created we get the user
   var username = newTweet.user;
+  // Find the users tweet stream array and push the new tweet into it
   streams.users[username].push(newTweet);
+  // Push the new tweet into the main home property which holds ALL the tweets in order?
   streams.home.push(newTweet);
 };
 
-// utility function
+// utility function to find random element in an array (to get the random words)
 var randomElement = function(array){
   var randomIndex = Math.floor(Math.random() * array.length);
   return array[randomIndex];
 };
 
-// random tweet generator
+// random tweet generator - like madlibs
 var opening = ['just', '', '', '', '', 'ask me how i', 'completely', 'nearly', 'productively', 'efficiently', 'last night i', 'the president', 'that wizard', 'a ninja', 'a seedy old man'];
 var verbs = ['downloaded', 'interfaced', 'deployed', 'developed', 'built', 'invented', 'experienced', 'navigated', 'aided', 'enjoyed', 'engineered', 'installed', 'debugged', 'delegated', 'automated', 'formulated', 'systematized', 'overhauled', 'computed'];
 var objects = ['my', 'your', 'the', 'a', 'my', 'an entire', 'this', 'that', 'the', 'the big', 'a new form of'];
 var nouns = ['cat', 'koolaid', 'system', 'city', 'worm', 'cloud', 'potato', 'money', 'way of life', 'belief system', 'security system', 'bad decision', 'future', 'life', 'pony', 'mind'];
 var tags = ['#techlife', '#burningman', '#sf', 'but only i know how', 'for real', '#sxsw', '#ballin', '#omg', '#yolo', '#magic', '', '', '', ''];
 
+// creates random message from the set of words above
 var randomMessage = function(){
   return [randomElement(opening), randomElement(verbs), randomElement(objects), randomElement(nouns), randomElement(tags)].join(' ');
 };
 
 // generate random tweets on a random schedule
 var generateRandomTweet = function(){
+  // create tweet object which olds the user, message, and Date object (which gets the time)
   var tweet = {};
   tweet.user = randomElement(users);
   tweet.message = randomMessage();
   tweet.created_at = new Date();
+  // the tweet is added...but to what?
   addTweet(tweet);
 };
 
+// By default 10 tweets are created with the generateRandomTweet function
 for(var i = 0; i < 10; i++){
   generateRandomTweet();
 }
 
+// This function seems to generate a random tweet between every ??? seconds and ??? seconds
 var scheduleNextTweet = function(){
   generateRandomTweet();
   setTimeout(scheduleNextTweet, Math.random() * 1500);
 };
+
+//above function is immeditately called (why not use an IIFE?)
 scheduleNextTweet();
 
 // utility function for letting students add "write a tweet" functionality
 // (note: not used by the rest of this file.)
+// Takes in a message (probably as a string)
 var writeTweet = function(message){
+  // There needs to be a visitor property on the global window? Why not just add it as a user?
+  // We can make any made with writeTweet be added to this new 'visitor' user instead of on some.
+  // To avoid having random tweets made by the visitor use this function to create that user if it doesn't exist yet.
   if(!visitor){
     throw new Error('set the global visitor property!');
   }
+  // all of the below just adds a tweet to the stream that a 'visitor' just made.
   var tweet = {};
   tweet.user = visitor;
   tweet.message = message;
