@@ -72,7 +72,14 @@ $(document).ready(function(){
     let searchTerm = $(this).parent().find('.searchInput');
     refreshStream(searchTerm.val());
     searchTerm.val('');
-    console.log("Handler for submit button called.");
+  });
+
+  $('.search').keypress(function(key) {
+    if(key.which == 13) {
+      let searchTerm = $(this).parent().find('.searchInput');
+      refreshStream(searchTerm.val());
+      searchTerm.val('');
+    }
   });
 
   // Initial tweets
