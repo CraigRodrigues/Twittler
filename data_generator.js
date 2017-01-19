@@ -8,6 +8,7 @@ window.streams = {}; // creating an property on the window object which is an em
 // creating empty data structures to house home and users
 streams.home = [];
 streams.users = {};
+streams.hashtags = {};
 streams.newTweetCount = 0;
 // here are the 4 users we have added to the users object. Each starts off as an empty array.
 streams.users.shawndrost = [];
@@ -25,6 +26,13 @@ var addTweet = function(newTweet){
   streams.users[username].push(newTweet);
   // Push the new tweet into the main home property which holds ALL the tweets in order?
   streams.home.push(newTweet);
+
+  var tweetHashtag = newTweet.message.split("#")[1] ? `#${newTweet.message.split("#")[1]}` : '';
+  var hashtagTable = streams.hashtags;
+    if (tweetHashtag.length > 0) {
+      tweetHashtag in hashtagTable ? hashtagTable[tweetHashtag]++ : hashtagTable[tweetHashtag] = 1;
+  }
+
   streams.newTweetCount++;
   document.title = `(${streams.newTweetCount}) Twittler`;
   $('#refreshArea').children('p').text(`View ${streams.newTweetCount} new tweets`);
