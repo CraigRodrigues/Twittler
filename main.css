@@ -45,3 +45,99 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+/* My styles */
+
+body {
+  width: 800px;
+  margin: 0 auto;
+}
+header {
+  height: 200px;
+}
+#logo    {
+  width: 200px;
+  float: left;
+}
+#title  {
+  width: 600px;
+  margin-left: 200px;
+}
+
+/* Search */
+.search {
+  margin: 20px auto 20px auto;
+  width: 200px;
+}
+
+/* Footer */
+footer {
+  margin: 20px auto 20px auto;
+  width: 400px;
+}
+
+/* Main columns */
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  clear: both;
+  *zoom: 1;
+}
+.side {
+  float: left;
+  margin: 0 1.5%;
+  width: 20%;
+}
+.main {
+  float: right;
+  margin: 0 1.5%;
+  width: 70%;
+}
+
+/* Tweet Input */
+#newTweetInput {
+  margin: 5px auto 5px auto;
+  width: 80%;
+}
+#newTweetInput input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+#refreshArea {
+  margin: 5px auto 5px auto;
+  text-align: center;
+  vertical-align: middle;
+}
+#tweetStreamTitle {
+  margin: 5px auto 5px auto;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Side bar */
+#profile {
+  border: 2px solid #9799a7;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+#trends {
+  border: 2px solid #9799a7;
+  padding: 10px;
+}
+
+/* Main Tweet Stream */
+.main {
+  border: 2px solid #9799a7;
+  padding: 10px;
+}
+
+.tweets li {
+  padding: 5px;
+}

@@ -85,7 +85,9 @@ $(document).ready(function(){
   $('.newTweetText').keypress(function(key) {
     if(key.which == 13) {
       let message = $(this);
-      writeTweet(message.val());
+      if (message.length > 0) {
+        writeTweet(message.val());
+      }
       refreshStream();
       message.val('');
     }
