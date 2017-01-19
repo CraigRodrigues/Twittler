@@ -13,17 +13,21 @@ $(document).ready(function(){
     }
 
     var allTweets = streams.home.slice();
-    // If no user passed in then show all tweets
+    // If no user/hashtag/search passed in then show all tweets
     if (users.includes(element)) {
       $('h2').text(`${element}'s Stream!`);
       allTweets = allTweets.filter(function(tweet) {
         return tweet.user === element;
       });
-    }
-    if (typeof element === 'string' && element.startsWith('#')) {
+    } else if (typeof element === 'string' && element.startsWith('#')) {
       $('h2').text(`Hashtag: ${element}`);
       allTweets = allTweets.filter(function(tweet) {
         return tweet.message.includes(element);
+      });
+    } else if (typeof element === 'string') {
+      $('h2').text(`Searching for: ${element}`);
+      allTweets = allTweets.filter(function(tweet) {
+        return tweet.message.includes(element) || tweet.user.includes(element);
       });
     }
 
@@ -50,6 +54,13 @@ $(document).ready(function(){
     if (elementClicked === 'hashtag') {
       refreshStream($(this).text());
     }
+  });
+
+  $('.searchButton').click(function() {
+    let searchTerm = $(this).parent().find('.searchInput');
+    refreshStream(searchTerm.val());
+    searchTerm.val('');
+    console.log("Handler for submit button called.");
   });
 
   // Initial tweets
