@@ -60,7 +60,7 @@ $(document).ready(function(){
   $('.stream').on('click', 'span', function() {
     // When the username span is clicked refresh the stream to only show their tweets
     let elementClicked = $(this).attr('class')
-    if (users.includes(elementClicked)) {
+    if (users.includes(elementClicked) || elementClicked === 'visitor') {
       refreshStream(elementClicked);
     }
     if (elementClicked === 'hashtag') {
@@ -74,11 +74,20 @@ $(document).ready(function(){
     searchTerm.val('');
   });
 
-  $('.search').keypress(function(key) {
+  $('.searchInput').keypress(function(key) {
     if(key.which == 13) {
-      let searchTerm = $(this).parent().find('.searchInput');
+      let searchTerm = $(this);
       refreshStream(searchTerm.val());
       searchTerm.val('');
+    }
+  });
+
+  $('.newTweetText').keypress(function(key) {
+    if(key.which == 13) {
+      let message = $(this);
+      writeTweet(message.val());
+      refreshStream();
+      message.val('');
     }
   });
 
