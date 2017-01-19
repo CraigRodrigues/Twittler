@@ -18,14 +18,17 @@ $(document).ready(function(){
   const refreshStream = function(element) {
     // clear the tweets so we can rebuild it
     $('.stream').empty();
+    $('h2').text(`Tweet Stream`);
     var allTweets = streams.home.slice();
     // If no user passed in then show all tweets
     if (users.includes(element)) {
+      $('h2').text(`${element}'s Stream!`);
       allTweets = allTweets.filter(function(tweet) {
         return tweet.user === element;
       });
     }
     if (typeof element === 'string' && element.startsWith('#')) {
+      $('h2').text(`Hashtag: ${element}`);
       allTweets = allTweets.filter(function(tweet) {
         // see if the text includes the hashtag we clicked on
         return tweet.message.includes(element);
