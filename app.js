@@ -15,14 +15,20 @@ $(document).ready(function(){
   // }
 
   // Show the user new tweets somehow. (You can show them automatically as they're created, or create a button that displays new tweets.)
-  const refreshStream = function(user) {
+  const refreshStream = function(element) {
     // clear the tweets so we can rebuild it
     $('.stream').empty();
     var allTweets = streams.home.slice();
     // If no user passed in then show all tweets
-    if (user) {
+    if (users.includes(element)) {
       allTweets = allTweets.filter(function(tweet) {
-        return tweet.user === user;
+        return tweet.user === element;
+      });
+    }
+    if (typeof element === 'string' && element.startsWith('#')) {
+      allTweets = allTweets.filter(function(tweet) {
+        // see if the text includes the hashtag we clicked on
+        return tweet.message.includes(element);
       });
     }
 
@@ -47,6 +53,9 @@ $(document).ready(function(){
     let elementClicked = $(this).attr('class')
     if (users.includes(elementClicked)) {
       refreshStream(elementClicked);
+    }
+    if (elementClicked === 'hashtag') {
+      refreshStream($(this).text());
     }
   });
 
