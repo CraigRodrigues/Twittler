@@ -30,14 +30,18 @@ $(document).ready(function(){
     var index = allTweets.length - 1;
     while(index >= 0) {
       var tweet = allTweets[index];
-      $('.stream').append(`<li><span class="${tweet.user}">@${tweet.user}</span> : <span class="message">${tweet.message}</span> || <span class="timestamp">${tweet.created_at.getHours()}:${tweet.created_at.getMinutes()}:${tweet.created_at.getSeconds()} - ${tweet.created_at.toDateString()}</span></li>`);
+      // split out the hashtag if there is one in the tweet
+      var tweetMessage = tweet.message.split("#")[0];
+      var tweetHashtag = tweet.message.split("#")[1] ? `<span class="hashtag">#${tweet.message.split("#")[1]}</span>` : '';
+      $('.stream').append(`<li><span class="${tweet.user}">@${tweet.user}</span> : <span class="message">${tweetMessage}</span> ${tweetHashtag} || <span class="timestamp">${tweet.created_at.getHours()}:${tweet.created_at.getMinutes()}:${tweet.created_at.getSeconds()} - ${tweet.created_at.toDateString()}</span></li>`);
       index -= 1;
     }
   }
 
   // Handlers
   // Refresh stream every time the button is clicked
-  $body.on('click', 'button', function() { refreshStream(); });
+  $('#refreshButton').on('click', function() { refreshStream(); });
+
   $('.stream').on('click', 'span', function() {
     // When the username span is clicked refresh the stream to only show their tweets
     let elementClicked = $(this).attr('class')
