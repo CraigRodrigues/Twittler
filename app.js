@@ -41,7 +41,7 @@ $(document).ready(function(){
       var tweetMessage = tweet.message.split("#")[0];
       var tweetHashtag = tweet.message.split("#")[1] ? `<span class="hashtag">#${tweet.message.split("#")[1]}</span>` : '';
 
-      $('.stream').append(`<li><img src="assets/visitor.png" width="50" alt="Visitor Profile Picture"><p><span class="${tweet.user}">@${tweet.user}</span></p><p><span class="message">${tweetMessage}</span> ${tweetHashtag}</p> <p><span class="timestamp">${tweet.created_at.getHours()}:${tweet.created_at.getMinutes()}:${tweet.created_at.getSeconds()} - ${tweet.created_at.toDateString()}</span></p></li>`);
+      $('.stream').append(`<li>${streams.avatars[tweet.user]}<p><span class="${tweet.user}">@${tweet.user}</span></p><p><span class="message">${tweetMessage}</span> ${tweetHashtag}</p> <p><span class="timestamp">${tweet.created_at.getHours()}:${tweet.created_at.getMinutes()}:${tweet.created_at.getSeconds()} - ${tweet.created_at.toDateString()}</span></p></li>`);
       index -= 1;
     }
 
@@ -58,7 +58,7 @@ $(document).ready(function(){
 
   const renderVisitorProfile = function() {
     let visitorTweetCount = visitor.length;
-    $('#profile').append('<img src="assets/visitor.png" width="100" alt="Visitor Profile Picture">');
+    $('#profile').append('<img src="assets/visitor.png" width="120" alt="Visitor Profile Picture">');
     $('#profile').append(`<h3>Visitor</h3>`);
     $('#profile').append(`<p>@visitor</p>`);
     $('#profile').append(`<p>Tweets: ${visitorTweetCount}</p>`);
