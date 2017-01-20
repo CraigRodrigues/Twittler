@@ -112,9 +112,10 @@ $(document).ready(function(){
     }
   });
 
-  // $('.stream').on('mouseenter mouseleave', 'li', function() {
-  //   $(this).toggleClass('highlight');
-  // });
+  $('header').on('click', 'div', function() {
+    refreshStream();
+    $('#refreshArea').children('p').removeClass('updated');
+  });
 
   // Initial tweets
   refreshStream();

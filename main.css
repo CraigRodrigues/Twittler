@@ -79,6 +79,10 @@ header {
   background-color: white;
 }
 
+header div {
+  cursor: pointer;
+}
+
 h1, h2, h3, h4 {
   color: #05B7FB;
 }
