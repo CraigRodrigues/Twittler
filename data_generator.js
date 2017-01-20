@@ -53,7 +53,8 @@ var addTweet = function(newTweet){
 
   streams.newTweetCount++;
   document.title = `(${streams.newTweetCount}) Twittler`;
-  $('#refreshArea').children('p').text(`View ${streams.newTweetCount} new tweets`);
+  $('#refreshArea').children('p').text(`View ${streams.newTweetCount} new Tweets`);
+  $('#refreshArea').children('p').addClass('updated');
 };
 
 // utility function to find random element in an array (to get the random words)

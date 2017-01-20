@@ -46,6 +46,7 @@ $(document).ready(function(){
       index -= 1;
     }
 
+    $('.tweets').scrollTop(0);
     // Render hashtags list
     renderWorldwideTrends();
     renderVisitorProfile();
@@ -66,7 +67,10 @@ $(document).ready(function(){
   }
 
   // Handlers
-  $('#refreshArea').on('click', function() { refreshStream(); });
+  $('#refreshArea').on('click', function() {
+    refreshStream();
+    $('#refreshArea').children('p').removeClass('updated');
+  });
 
   $('.group').on('click', 'span', function() {
     // When the username span is clicked refresh the stream to only show their tweets
@@ -100,8 +104,8 @@ $(document).ready(function(){
         writeTweet(message.val());
       }
       refreshStream();
+      $('#refreshArea').children('p').removeClass('updated');
       message.val('');
-      $('.tweets').scrollTop(0);
     }
   });
 
