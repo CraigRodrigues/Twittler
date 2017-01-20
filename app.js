@@ -53,7 +53,7 @@ $(document).ready(function(){
 
   const renderWorldwideTrends = function() {
     for (hashtag in streams.hashtags) {
-      $('.hashtags').append(`<li>${hashtag} - ${streams.hashtags[hashtag]}</li>`);
+      $('.hashtags').append(`<li><span class="hashtag">${hashtag}</span> - ${streams.hashtags[hashtag]}</li>`);
     }
   }
 
@@ -68,7 +68,7 @@ $(document).ready(function(){
   // Handlers
   $('#refreshArea').on('click', function() { refreshStream(); });
 
-  $('.stream').on('click', 'span', function() {
+  $('.group').on('click', 'span', function() {
     // When the username span is clicked refresh the stream to only show their tweets
     let elementClicked = $(this).attr('class')
     if (users.includes(elementClicked) || elementClicked === 'visitor') {
