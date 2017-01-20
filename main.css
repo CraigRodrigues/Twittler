@@ -47,32 +47,67 @@ table {
 }
 
 /* My styles */
-
 body {
-  width: 800px;
   margin: 0 auto;
+  font-family: 'Quicksand', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
 }
 header {
-  width: 300px;
-  height: 75px;
+  height: 120px;
   margin: 0 auto;
-  padding-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  box-shadow: 0px 3px 6px -4px #C9C9C9;
+  -webkit-box-shadow: 0px 3px 6px -4px #C9C9C9;
+  -moz-box-shadow: 0px 3px 6px -4px #C9C9C9;
+  -o-box-shadow: 0px 3px 6px -4px #C9C9C9;
 }
+
+h1, h2, h3, h4 {
+  color: #a3dbff;
+}
+h1 {
+  font-size: 70px;
+  line-height: 44px;
+  font-weight: 100;
+}
+h2 {
+  font-size: 24px;
+  line-height: 44px;
+}
+h3 {
+  font-size: 21px;
+}
+h4 {
+  font-size: 18px;
+}
+p {
+  line-height: 22px;
+}
+li {
+  line-height: 22px;
+}
+
+span:hover {
+  text-decoration: underline;
+  color: #a9b2b9;
+  cursor: pointer;
+}
+
 #logo    {
-  width: 200px;
-  float: left;
+  display: inline-block;
 }
 #title  {
-  width: 600px;
-  height: 100px;
+  display: inline-block;
+  margin-right: 20px;
   margin-top: auto;
   margin-bottom: auto;
-  margin-left: 200px;
-  vertical-align: center;
 }
 
 /* Search */
 .search {
+  width: 500px;
   margin: 20px auto 20px auto;
   text-align: center;
 }
@@ -103,13 +138,17 @@ footer {
 }
 .side {
   float: left;
-  margin: 0 1.5%;
-  width: 20%;
+  margin: 0 1%;
+  width: 23.5%;
 }
 .main {
   float: right;
   margin: 0 2%;
   width: 70%;
+}
+.group {
+  width: 800px;
+  margin: 5px auto;
 }
 
 /* Tweet Input */
@@ -157,7 +196,7 @@ footer {
 }
 
 .tweets li {
-  padding: 5px 10px;
+  padding: 5px 15px;
   border-top: 1px solid black;
 }
 
