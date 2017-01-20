@@ -10,6 +10,7 @@ streams.home = [];
 streams.users = {};
 streams.hashtags = {};
 streams.avatars = {};
+streams.names = {};
 streams.newTweetCount = 0;
 // here are the 4 users we have added to the users object. Each starts off as an empty array.
 streams.users.shawndrost = [];
@@ -21,6 +22,12 @@ streams.avatars.craigrodrigues = '<img src="assets/craigrodrigues.png" width="50
 streams.avatars.hackreactor = '<img src="assets/hackreactor.png" width="50" alt="Hack Reactor Profile Picture">';
 streams.avatars.douglascalhoun = '<img src="assets/douglascalhoun.png" width="50" alt="Douglas Calhoun Profile Picture">';
 streams.avatars.visitor = '<img src="assets/visitor.png" width="50" alt="Visitor Profile Picture">';
+streams.names.shawndrost = 'Shawn Drost';
+streams.names.craigrodrigues = 'Craig Rodrigues';
+streams.names.hackreactor = 'Hack Reactor';
+streams.names.douglascalhoun = 'Douglas Calhoun';
+streams.names.visitor = 'Visitor Person';
+
 // adding a property to the window object which is just an Array of the stream users so it should be [shawndrost, sharksforcheap, mracus, douglascalhoun]
 window.users = Object.keys(streams.users);
 window.visitor = [];
