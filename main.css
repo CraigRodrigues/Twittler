@@ -53,6 +53,7 @@ body {
   font-size: 16px;
 }
 header {
+  width: 800px;
   height: 120px;
   margin: 0 auto;
   padding-top: 10px;
@@ -65,12 +66,12 @@ header {
 }
 
 h1, h2, h3, h4 {
-  color: #a3dbff;
+  color: #0892d1;
 }
 h1 {
   font-size: 70px;
   line-height: 44px;
-  font-weight: 100;
+  font-weight: 400;
 }
 h2 {
   font-size: 24px;
@@ -107,7 +108,7 @@ span:hover {
 
 /* Search */
 .search {
-  width: 500px;
+  width: 800px;
   margin: 20px auto 20px auto;
   text-align: center;
 }
@@ -174,12 +175,12 @@ footer {
 
 /* Side bar */
 #profile {
-  border: 2px solid #9799a7;
+  border: 1px solid #9799a7;
   padding: 10px;
   margin-bottom: 10px;
 }
 #trends {
-  border: 2px solid #9799a7;
+  border: 1px solid #9799a7;
   padding: 10px;
 }
 
@@ -197,7 +198,7 @@ footer {
 
 .tweets li {
   padding: 5px 15px;
-  border-top: 1px solid black;
+  border-top: 1px solid #9799a7;
 }
 
 /* Highlight */
