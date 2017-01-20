@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+  jQuery("time.timeago").timeago();
+
   const refreshStream = function(element) {
     // Clear the tweets so we can rebuild it
     $('.stream').empty();
@@ -16,8 +19,8 @@ $(document).ready(function(){
 
     var allTweets = streams.home.slice();
     // If no user/hashtag/search passed in then show all tweets
-    if (users.includes(element)) {
-      $('h2').text(`${element}'s Stream!`);
+    if (users.includes(element) || element === 'visitor') {
+      $('h2').text(`${element}'s Tweets`);
       allTweets = allTweets.filter(function(tweet) {
         return tweet.user === element;
       });
@@ -42,7 +45,7 @@ $(document).ready(function(){
       tweetMessage = tweetMessage[0].toUpperCase() + tweetMessage.slice(1);
       var tweetHashtag = tweet.message.split("#")[1] ? `<span class="hashtag">#${tweet.message.split("#")[1]}</span>` : '';
 
-      $('.stream').append(`<li>${streams.avatars[tweet.user]}<p><span class="${tweet.user}"><strong>${streams.names[tweet.user]}</strong>  @${tweet.user}</span></p><p><span class="message">${tweetMessage}</span> ${tweetHashtag}</p> <p><span class="timestamp">${tweet.created_at.getHours()}:${tweet.created_at.getMinutes()}:${tweet.created_at.getSeconds()} - ${tweet.created_at.toDateString()}</span></p></li>`);
+      $('.stream').append(`<li><span class="${tweet.user}">${streams.avatars[tweet.user]}</span><p><span class="${tweet.user}"><strong>${streams.names[tweet.user]}</strong>  @${tweet.user}</span></p><p>${tweetMessage} ${tweetHashtag}</p> <p><span class="timestamp">${jQuery.timeago(tweet.created_at)}</span></p></li>`);
       index -= 1;
     }
 
@@ -60,7 +63,7 @@ $(document).ready(function(){
 
   const renderVisitorProfile = function() {
     let visitorTweetCount = visitor.length;
-    $('#profile').append('<img src="assets/visitor.png" width="120" alt="Visitor Profile Picture">');
+    $('#profile').append('<span class="visitor"><img src="assets/visitor.png" width="120" alt="Visitor Profile Picture"></span>');
     $('#profile').append(`<h3>Visitor</h3>`);
     $('#profile').append(`<p>@visitor</p>`);
     $('#profile').append(`<p>Tweets: ${visitorTweetCount}</p>`);

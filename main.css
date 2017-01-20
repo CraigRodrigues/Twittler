@@ -272,13 +272,16 @@ footer a:hover {
   padding-top: 5px;
   padding-right: 15px;
 }
+.timestamp {
+  font-size: 12px;
+}
 
 #refreshArea p {
   transition: font-weight 1s ease;
 }
 
 .updated {
-  font-weight: bold;
+  color: #05B7FB;
 }
 
 input[type=text] {
