@@ -101,6 +101,7 @@ $(document).ready(function(){
       }
       refreshStream();
       message.val('');
+      $('.tweets').scrollTop(0);
     }
   });
 
