@@ -21,7 +21,7 @@ $(document).ready(function(){
         return tweet.user === element;
       });
     } else if (typeof element === 'string' && element.startsWith('#')) {
-      $('h2').text(`Hashtag: ${element}`);
+      $('h2').text(`${element}`);
       allTweets = allTweets.filter(function(tweet) {
         return tweet.message.includes(element);
       });
