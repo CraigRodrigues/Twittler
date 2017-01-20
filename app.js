@@ -40,7 +40,8 @@ $(document).ready(function(){
       var tweetMessage = tweet.message.split("#")[0];
       var tweetHashtag = tweet.message.split("#")[1] ? `<span class="hashtag">#${tweet.message.split("#")[1]}</span>` : '';
 
-      $('.stream').append(`<li><p><span class="${tweet.user}">@${tweet.user}</span></p><p><span class="message">${tweetMessage}</span> ${tweetHashtag}</p> <p><span class="timestamp">${tweet.created_at.getHours()}:${tweet.created_at.getMinutes()}:${tweet.created_at.getSeconds()} - ${tweet.created_at.toDateString()}</span></p></li>`);
+      $('.stream').append(`<li class='swing'><p><span class="${tweet.user}">@${tweet.user}</span></p><p><span class="message">${tweetMessage}</span> ${tweetHashtag}</p> <p><span class="timestamp">${tweet.created_at.getHours()}:${tweet.created_at.getMinutes()}:${tweet.created_at.getSeconds()} - ${tweet.created_at.toDateString()}</span></p></li>`);
+      $('.stream').find('li').addClass('show');
       index -= 1;
     }
 
@@ -93,9 +94,9 @@ $(document).ready(function(){
     }
   });
 
-  $('.stream').on('mouseenter mouseleave', 'li', function() {
-    $(this).toggleClass('highlight');
-  });
+  // $('.stream').on('mouseenter mouseleave', 'li', function() {
+  //   $(this).toggleClass('highlight');
+  // });
 
   // Initial tweets
   refreshStream();

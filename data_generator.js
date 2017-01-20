@@ -13,7 +13,7 @@ streams.newTweetCount = 0;
 // here are the 4 users we have added to the users object. Each starts off as an empty array.
 streams.users.shawndrost = [];
 streams.users.craigrodrigues = [];
-streams.users.breezy = [];
+streams.users.hackreactor = [];
 streams.users.douglascalhoun = [];
 // adding a property to the window object which is just an Array of the stream users so it should be [shawndrost, sharksforcheap, mracus, douglascalhoun]
 window.users = Object.keys(streams.users);
