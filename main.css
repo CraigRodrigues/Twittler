@@ -146,6 +146,15 @@ footer {
   margin: 0px auto 00px auto;
   width: 800px;
   text-align: center;
+  color: white;
+}
+
+footer a {
+  color: white;
+}
+footer a:hover {
+  color: #fff0cc;
+  font-weight: bold;
 }
 
 /* Main columns */
