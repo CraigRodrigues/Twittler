@@ -3,6 +3,7 @@ $(document).ready(function(){
     // Clear the tweets so we can rebuild it
     $('.stream').empty();
     $('.hashtags').empty();
+    $('#profile').empty();
 
     // Reset the new tweet counter only if we refreshed all the tweets and not just filtered some out
     if (!element) {
@@ -40,19 +41,27 @@ $(document).ready(function(){
       var tweetMessage = tweet.message.split("#")[0];
       var tweetHashtag = tweet.message.split("#")[1] ? `<span class="hashtag">#${tweet.message.split("#")[1]}</span>` : '';
 
-      $('.stream').append(`<li class='swing'><p><span class="${tweet.user}">@${tweet.user}</span></p><p><span class="message">${tweetMessage}</span> ${tweetHashtag}</p> <p><span class="timestamp">${tweet.created_at.getHours()}:${tweet.created_at.getMinutes()}:${tweet.created_at.getSeconds()} - ${tweet.created_at.toDateString()}</span></p></li>`);
-      $('.stream').find('li').addClass('show');
+      $('.stream').append(`<li><img src="assets/visitor.png" width="50" alt="Visitor Profile Picture"><p><span class="${tweet.user}">@${tweet.user}</span></p><p><span class="message">${tweetMessage}</span> ${tweetHashtag}</p> <p><span class="timestamp">${tweet.created_at.getHours()}:${tweet.created_at.getMinutes()}:${tweet.created_at.getSeconds()} - ${tweet.created_at.toDateString()}</span></p></li>`);
       index -= 1;
     }
 
     // Render hashtags list
     renderWorldwideTrends();
+    renderVisitorProfile();
   }
 
   const renderWorldwideTrends = function() {
     for (hashtag in streams.hashtags) {
       $('.hashtags').append(`<li>${hashtag} - ${streams.hashtags[hashtag]}</li>`);
     }
+  }
+
+  const renderVisitorProfile = function() {
+    let visitorTweetCount = visitor.length;
+    $('#profile').append('<img src="assets/visitor.png" width="100" alt="Visitor Profile Picture">');
+    $('#profile').append(`<h3>Visitor</h3>`);
+    $('#profile').append(`<p>@visitor</p>`);
+    $('#profile').append(`<p>Tweets: ${visitorTweetCount}</p>`);
   }
 
   // Handlers

@@ -94,7 +94,7 @@ h2 {
 }
 h3 {
   font-size: 30px;
-  padding-bottom: 8px;
+  padding-bottom: 5px;
 }
 h4 {
   font-size: 26px;
@@ -211,6 +211,7 @@ footer {
   border: 1px solid #9799a7;
   padding: 10px;
   margin-bottom: 10px;
+  text-align: center;
 }
 #trends {
   border: 1px solid #9799a7;
@@ -230,8 +231,10 @@ footer {
 }
 
 .tweets li {
+  height: auto;
   padding: 5px 15px;
   border-top: 1px solid #9799a7;
+  vertical-align: middle;
   transition: background-color 0.3s ease;
 
   -webkit-transform: perspective(1px) translateZ(0);
@@ -247,6 +250,11 @@ footer {
 .tweets li:hover {
   background-color: #fff0cc;
   box-shadow: inset 0 0 0 2px #2098D1, 0 0 1px transparent;
+}
+.tweets li img {
+  float:left;
+  padding-top: 5px;
+  padding-right: 10px;
 }
 
 input[type=text] {
