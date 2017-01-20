@@ -39,6 +39,7 @@ $(document).ready(function(){
       var tweet = allTweets[index];
       // Split out the hashtag if there is one in the tweet
       var tweetMessage = tweet.message.split("#")[0];
+      tweetMessage = tweetMessage[0].toUpperCase() + tweetMessage.slice(1);
       var tweetHashtag = tweet.message.split("#")[1] ? `<span class="hashtag">#${tweet.message.split("#")[1]}</span>` : '';
 
       $('.stream').append(`<li>${streams.avatars[tweet.user]}<p><span class="${tweet.user}"><strong>${streams.names[tweet.user]}</strong>  @${tweet.user}</span></p><p><span class="message">${tweetMessage}</span> ${tweetHashtag}</p> <p><span class="timestamp">${tweet.created_at.getHours()}:${tweet.created_at.getMinutes()}:${tweet.created_at.getSeconds()} - ${tweet.created_at.toDateString()}</span></p></li>`);
