@@ -1,5 +1,6 @@
 # Twittler
-the Hack Reactor pre-course curriculum to learn and get exposure to jQuery and the DOM.
+![Twittler!](http://i.imgur.com/Asq9E9h.jpg)
+A mini-project created as part of the Hack Reactor pre-course curriculum to learn and get exposure to jQuery and the DOM.
 
 It also served as a good exercise to get some hands-on work with HTML and CSS.
 
