@@ -6,6 +6,10 @@ It also served as a good exercise to get some hands-on work with HTML and CSS.
 
 Tweets are randomly generated every 20-40 seconds (or when the user composes one).
 
+## Demo
+
+![Craig's Twittler Demo](http://i.imgur.com/g9L4wKk.gif)
+
 ## Features
 1. Shows the timestamps of when the tweets were created in a human-friendly way using the [timeago](http://timeago.yarp.com/) jQuery plugin.
 2. Users can  click on a username to see that user's timeline.
